@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:id="@+id/recycle_view_row">
 
     <androidx.cardview.widget.CardView
         android:layout_width="409dp"
@@ -43,10 +44,10 @@
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.502"
+                app:layout_constraintHorizontal_bias="0.448"
                 app:layout_constraintStart_toEndOf="@+id/iv_mercurio"
                 app:layout_constraintTop_toBottomOf="@+id/tv_mercury"
-                app:layout_constraintVertical_bias="0.229" />
+                app:layout_constraintVertical_bias="0.0" />
 
             <TextView
                 android:id="@+id/tv_mercury"
@@ -54,7 +55,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/mercury"
                 android:textColor="@color/white"
-                android:textSize="40sp"
+                android:textSize="45sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.502"
@@ -68,10 +69,13 @@
                 android:layout_height="wrap_content"
                 android:text="66.438.000 km"
                 android:textColor="@color/white"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.503"
                 app:layout_constraintStart_toEndOf="@+id/iv_mercurio"
-                app:layout_constraintTop_toBottomOf="@+id/tv_distance" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_distance"
+                app:layout_constraintVertical_bias="0.0" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

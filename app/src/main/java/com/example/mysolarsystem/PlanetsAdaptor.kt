@@ -1,12 +1,11 @@
 package com.example.mysolarsystem
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mysolarsystem.databinding.RecycleViewRowBinding
 
-class PlanetsAdaptor(val items : MutableList<Planets>):
+class PlanetsAdaptor(private val items : MutableList<Planets>):
     RecyclerView.Adapter<PlanetsAdaptor.ViewHolder>() {
 
     private lateinit var binding: RecycleViewRowBinding
@@ -28,9 +27,8 @@ class PlanetsAdaptor(val items : MutableList<Planets>):
     inner class ViewHolder (itemView : RecycleViewRowBinding) : RecyclerView.ViewHolder(itemView.root){
         fun bind (item : Planets){
             binding.apply {
-                tvDistance.text = item.distance.toString()
-                tvKm.text = item.km.toString()
                 tvMercury.text = item.name.toString()
+                ivPlanet.setImageResource(R.drawable.terra)
             }
 
 

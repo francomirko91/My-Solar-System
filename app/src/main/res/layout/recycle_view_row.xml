@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/recycle_view_row">
-
-    <androidx.cardview.widget.CardView
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
-        app:cardBackgroundColor="@color/black"
-        app:cardCornerRadius="20sp"
+        app:cardBackgroundColor="#00000000"
+        app:cardCornerRadius="150sp"
         app:cardElevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -19,63 +14,39 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.5" >
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-            <ImageView
-                android:padding="10dp"
-                android:id="@+id/iv_mercurio"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_marginStart="4dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0"
-                app:srcCompat="@drawable/mercurio" />
+        <ImageView
+            android:id="@+id/iv_planet"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_marginStart="4dp"
+            android:padding="10dp"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/mercurio" />
 
-            <TextView
-                android:id="@+id/tv_distance"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/distance_from_the_sun"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.448"
-                app:layout_constraintStart_toEndOf="@+id/iv_mercurio"
-                app:layout_constraintTop_toBottomOf="@+id/tv_mercury"
-                app:layout_constraintVertical_bias="0.0" />
+        <TextView
+            android:id="@+id/tv_mercury"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mercury"
+            android:layout_marginEnd="40dp"
+            android:textColor="@color/white"
+            android:textSize="45sp"
+            android:paddingRight="40dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/iv_planet"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5" />
 
-            <TextView
-                android:id="@+id/tv_mercury"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/mercury"
-                android:textColor="@color/white"
-                android:textSize="45sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.502"
-                app:layout_constraintStart_toEndOf="@+id/iv_mercurio"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.122" />
-
-            <TextView
-                android:id="@+id/tv_km"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="66.438.000 km"
-                android:textColor="@color/white"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.503"
-                app:layout_constraintStart_toEndOf="@+id/iv_mercurio"
-                app:layout_constraintTop_toBottomOf="@+id/tv_distance"
-                app:layout_constraintVertical_bias="0.0" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
-</androidx.constraintlayout.widget.ConstraintLayout>

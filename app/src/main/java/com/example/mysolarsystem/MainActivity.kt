@@ -1,44 +1,36 @@
 package com.example.mysolarsystem
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.mysolarsystem.databinding.ActivityMainBinding
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.RecyclerView
 
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
-
-    private var nameList : MutableList<Planets> = mutableListOf()
-    private lateinit var planetsAdaptor : PlanetsAdaptor
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        loadData()
-        planetsAdaptor = PlanetsAdaptor(nameList)
-        binding.apply {
-            rvPlanets.apply {
-                layoutManager = LinearLayoutManager(this@MainActivity)
-                adapter=planetsAdaptor
+        setContentView(R.layout.activity_main)
 
+        val planetsList = getPlanetsList()
+        val planetsAdaptor = PlanetsAdaptor(planetsList)
+        val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
+        recyclerView.adapter = planetsAdaptor
+
+    }
+
+        private fun getPlanetsList(): ArrayList<Planets> {
+            return ArrayList<Planets>().apply {
+
+                add(Planets(image = R.drawable.mercurio, name = "Mercury", button = "Discover"))
+                add(Planets(image = R.drawable.venere, name = "Venus",button = "Discover"))
+                add(Planets(image = R.drawable.terra, name = "Earth",button = "Discover"))
+                add(Planets(image = R.drawable.marte, name = "Mars",button = "Discover"))
+                add(Planets(image = R.drawable.giove, name = "Jupiter",button = "Discover"))
+                add(Planets(image = R.drawable.saturno, name = "Saturn",button = "Discover"))
+                add(Planets(image = R.drawable.urano, name = "Uran",button = "Discover"))
+                add(Planets(image = R.drawable.nettuno, name = "Neptune",button = "Discover"))
+                add(Planets(image = R.drawable.pluto, name = "Pluto",button = "Discover"))
             }
         }
-
     }
 
-
-    fun loadData(){
-        nameList.add(Planets(R.drawable.mercurio, "Mercury"))
-        nameList.add(Planets(R.drawable.venere, "Venus"))
-        nameList.add(Planets(R.drawable.terra, "Earth"))
-        nameList.add(Planets(R.drawable.marte, "Mars"))
-        nameList.add(Planets(R.drawable.giove, "Jupiter"))
-        nameList.add(Planets(R.drawable.saturno, "Saturn"))
-        nameList.add(Planets(R.drawable.urano, "Uran"))
-        nameList.add(Planets(R.drawable.nettuno, "Neptun"))
-        nameList.add(Planets(R.drawable.pluto, "Pluton"))
-    }
-}

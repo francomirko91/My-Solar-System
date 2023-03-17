@@ -1,38 +1,48 @@
 package com.example.mysolarsystem
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.example.mysolarsystem.databinding.RecycleViewRowBinding
 
-class PlanetsAdaptor(private val items : MutableList<Planets>):
-    RecyclerView.Adapter<PlanetsAdaptor.ViewHolder>() {
+class PlanetsAdaptor(private val data: ArrayList<Planets>) :
+    RecyclerView.Adapter<PlanetsAdaptor.PlanetsViewHolder>() {
 
-    private lateinit var binding: RecycleViewRowBinding
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PlanetsAdaptor.ViewHolder {
-        val inflater = LayoutInflater.from(parent.context)
-        binding= RecycleViewRowBinding.inflate(inflater,parent,false)
-        return ViewHolder(binding)
-
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PlanetsViewHolder {
+        return PlanetsViewHolder(parent)
     }
 
-    override fun onBindViewHolder(holder: PlanetsAdaptor.ViewHolder, position: Int) {
-        holder.bind(items[position])
+    override fun onBindViewHolder(holder: PlanetsAdaptor.PlanetsViewHolder, position: Int) {
+        holder.onBind(data[position])
     }
 
-    override fun getItemCount() = items.size
+    override fun getItemCount(): Int {
+        return data.size
+    }
 
 
-    inner class ViewHolder (itemView : RecycleViewRowBinding) : RecyclerView.ViewHolder(itemView.root){
-        fun bind (item : Planets){
-            binding.apply {
-                tvMercury.text = item.name.toString()
-                ivPlanet.setImageResource(R.drawable.terra)
+    inner class PlanetsViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(
+        LayoutInflater.from(parent.context).inflate(R.layout.recycle_view_row, parent, false)
+    ) {
+
+        private val image: ImageView = itemView.findViewById(R.id.iv_planet)
+        private val name: TextView = itemView.findViewById(R.id.tv_planet)
+        private val button : Button = itemView.findViewById(R.id.button)
+
+        fun onBind(planets: Planets) {
+
+            image.setImageResource(planets.image)
+            name.text = planets.name
+            button.setOnClickListener {
+                Toast.makeText(it.context,"clicked",Toast.LENGTH_LONG).show()
             }
 
-
-
         }
+
     }
 }
